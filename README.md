@@ -8,14 +8,15 @@ the environment has been proven on a real device.
 ## Requirements
 
 - Node.js 20 or later
-- Android Studio with an Android 13 / API 33 SDK platform and an emulator or
-  USB-debuggable Android device
+- Android Studio with an Android 13 / API 33 SDK platform and an Android 13 /
+  API 33 or newer emulator or USB-debuggable Android device
 - A JDK supported by the installed Android Studio (use Android Studio's embedded
   JDK when possible)
 
 The Android wrapper compiles against API 36 because current Android tooling
 expects a recent compile SDK, but its `targetSdkVersion` is explicitly pinned
-to **33** (Android 13) in `android/variables.gradle`.
+to **33** (Android 13) and its `minSdkVersion` is also **33** (Android 13) in
+`android/variables.gradle`.
 
 ## Run the web app in a browser
 

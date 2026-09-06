@@ -1,5 +1,6 @@
 ext {
-    minSdkVersion = 24
+    // This prototype supports Android 13 / API 33 and newer only.
+    minSdkVersion = 33
     // Current Capacitor Android dependencies require API 36 to compile.
     // This is independent of the Android 13 runtime target below.
     compileSdkVersion = 36

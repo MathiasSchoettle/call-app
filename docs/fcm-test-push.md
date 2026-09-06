@@ -93,7 +93,48 @@ A successful response contains a `name` field with the FCM message ID. If it
 returns `PERMISSION_DENIED`, ensure the signed-in account can send FCM messages
 for the chosen Google Cloud/Firebase project.
 
-## Expected behavior
+## 4. Test a mocked incoming call
+
+Install the latest APK, open the app once (this registers the self-managed
+Telecom account), then place the app in the background. Use the same PowerShell
+authentication from the previous section, then run the included **data-only**
+push script:
+
+```powershell
+.\scripts\send-incoming-call.ps1 -DeviceToken 'PASTE_THE_TOKEN_FROM_THE_APP'
+```
+
+Optional parameters let you change the caller, call ID, or Firebase project:
+
+```powershell
+.\scripts\send-incoming-call.ps1 `
+  -DeviceToken 'PASTE_THE_TOKEN_FROM_THE_APP' `
+  -Caller 'Alice Example' `
+  -CallId 'demo-001' `
+  -ProjectId 'mobile-1b887'
+```
+
+If your PowerShell execution policy blocks local scripts, use a process-only
+exception (it disappears when the terminal closes):
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
+```
+
+Expected prototype behavior:
+
+1. Android Telecom receives a self-managed incoming call.
+2. The app posts a ringing, high-priority call notification and its full-screen
+   incoming-call UI, with the system ringtone.
+3. **Answer** opens the Capacitor app and starts an active-call foreground
+   notification with **Hang up**.
+4. **Decline** or **Hang up** clears the native call state and notification.
+
+Do not include a `notification` object in this payload: notification-payload
+messages received in the background are handled by the system tray instead of
+the app's `FirebaseMessagingService`.
+
+## Expected behavior of the hello message
 
 - **App foreground:** `AppFirebaseMessagingService` receives the message and
   posts a native notification.
@@ -102,6 +143,6 @@ for the chosen Google Cloud/Firebase project.
 - **App stopped:** delivery is still handled by native FCM, subject to normal
   Android and FCM delivery constraints.
 
-The later call implementation will send high-priority data-only messages from
-the server. This hello-world uses a visible notification payload intentionally,
-because it provides the clearest configuration test.
+The incoming-call implementation currently mocks native call state only. The
+next milestone connects an answered call to the WebView/JsSIP mock and supplies
+loopback audio plus a web-layer Hang up control.

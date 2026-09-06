@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/incoming_call_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="32dp"
+    android:paddingTop="72dp"
+    android:paddingBottom="48dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.14"
+        android:text="INCOMING CALL"
+        android:textColor="@color/incoming_call_primary"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="112dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/incoming_call_avatar"
+        android:padding="32dp"
+        android:src="@drawable/ic_voip_phone" />
+
+    <TextView
+        android:id="@+id/incoming_caller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Mock VoIP call"
+        android:textColor="@color/incoming_call_text_secondary"
+        android:textSize="16sp" />
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/incoming_answer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/incoming_call_answer"
+        android:text="Answer"
+        android:textAllCaps="false"
+        android:textColor="@color/incoming_call_background"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/incoming_decline"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/incoming_call_decline"
+        android:text="Decline"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+</LinearLayout>

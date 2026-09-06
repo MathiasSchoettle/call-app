@@ -15,6 +15,7 @@ public class MainActivity extends BridgeActivity {
         // custom plugins must be registered before that point.
         registerPlugin(PushDebugPlugin.class);
         super.onCreate(savedInstanceState);
+        VoipCallManager.registerPhoneAccount(this);
         requestNotificationPermission();
     }
 

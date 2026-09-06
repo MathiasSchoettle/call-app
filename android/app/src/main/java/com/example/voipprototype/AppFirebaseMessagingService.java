@@ -33,6 +33,12 @@ public final class AppFirebaseMessagingService extends FirebaseMessagingService 
     public void onMessageReceived(RemoteMessage message) {
         super.onMessageReceived(message);
         Log.i(TAG, "FCM message received from " + message.getFrom());
+        if ("incoming_call".equals(message.getData().get("type"))) {
+            String callId = message.getData().getOrDefault("call_id", "mock-call");
+            String caller = message.getData().getOrDefault("caller", "Mock caller");
+            VoipCallManager.showIncomingCall(this, callId, caller);
+            return;
+        }
         showNotification(message);
     }
 
