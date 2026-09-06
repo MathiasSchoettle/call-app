@@ -19,8 +19,6 @@ public final class IncomingCallActivity extends Activity {
         setShowWhenLocked(true);
         setTurnScreenOn(true);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        getWindow().setStatusBarColor(android.graphics.Color.rgb(16, 19, 26));
-        getWindow().setNavigationBarColor(android.graphics.Color.rgb(16, 19, 26));
         setContentView(R.layout.activity_incoming_call);
 
         String caller = getIntent().getStringExtra(VoipCallManager.EXTRA_CALLER);

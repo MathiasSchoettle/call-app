@@ -2,7 +2,6 @@ package com.example.voipprototype;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.os.Build;
 
 import com.getcapacitor.BridgeActivity;
 
@@ -20,9 +19,7 @@ public class MainActivity extends BridgeActivity {
     }
 
     private void requestNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-                && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(
                     new String[] { Manifest.permission.POST_NOTIFICATIONS },
                     NOTIFICATION_PERMISSION_REQUEST_CODE

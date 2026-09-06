@@ -5,9 +5,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -20,7 +20,7 @@ public final class AppFirebaseMessagingService extends FirebaseMessagingService 
     private static final int NOTIFICATION_ID = 1001;
 
     @Override
-    public void onNewToken(String token) {
+    public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
         getSharedPreferences("push_debug", MODE_PRIVATE)
                 .edit()
@@ -30,7 +30,7 @@ public final class AppFirebaseMessagingService extends FirebaseMessagingService 
     }
 
     @Override
-    public void onMessageReceived(RemoteMessage message) {
+    public void onMessageReceived(@NonNull RemoteMessage message) {
         super.onMessageReceived(message);
         Log.i(TAG, "FCM message received from " + message.getFrom());
         if ("incoming_call".equals(message.getData().get("type"))) {
@@ -76,10 +76,6 @@ public final class AppFirebaseMessagingService extends FirebaseMessagingService 
     }
 
     private void createChannel() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            return;
-        }
-
         NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
                 "General messages",

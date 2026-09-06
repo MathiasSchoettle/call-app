@@ -70,17 +70,10 @@ public final class CallForegroundService extends Service {
                 .setOngoing(true)
                 .addAction(0, "Hang up", hangUpIntent);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(NOTIFICATION_ID, notification.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL);
-        } else {
-            startForeground(NOTIFICATION_ID, notification.build());
-        }
+        startForeground(NOTIFICATION_ID, notification.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL);
     }
 
     private void createChannel() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            return;
-        }
         NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
                 "Active calls",
