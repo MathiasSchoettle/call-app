@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "667359629522",
+    "project_id": "mobile-1b887",
+    "storage_bucket": "mobile-1b887.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667359629522:android:dfe253091678617aa35d0b",
+        "android_client_info": {
+          "package_name": "com.example.voipprototype"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0Xn3cI_zfQxj3Ca5uEW9PLi-D8SzxwTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

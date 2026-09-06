@@ -1,0 +1,10 @@
+node_modules/
+.nuxt/
+.output/
+dist/
+.gradle/
+.idea/
+android/.gradle/
+android/build/
+android/app/build/
+local.properties
