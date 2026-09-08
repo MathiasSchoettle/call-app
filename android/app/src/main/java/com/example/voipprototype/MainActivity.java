@@ -2,18 +2,22 @@ package com.example.voipprototype;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.getcapacitor.BridgeActivity;
 
 public class MainActivity extends BridgeActivity {
+    private static final String TAG = "MainActivity";
     private static final int NOTIFICATION_PERMISSION_REQUEST_CODE = 1001;
 
     @Override
     public void onCreate(android.os.Bundle savedInstanceState) {
+        Log.i(TAG, "onCreate");
         // BridgeActivity creates the WebView bridge during super.onCreate(), so
         // custom plugins must be registered before that point.
         registerPlugin(PushDebugPlugin.class);
+        registerPlugin(CallPlugin.class);
         super.onCreate(savedInstanceState);
         configureForLockscreen();
         VoipCallManager.registerPhoneAccount(this);
@@ -22,6 +26,7 @@ public class MainActivity extends BridgeActivity {
 
     @Override
     protected void onNewIntent(android.content.Intent intent) {
+        Log.i(TAG, "onNewIntent");
         super.onNewIntent(intent);
         setIntent(intent);
         configureForLockscreen();

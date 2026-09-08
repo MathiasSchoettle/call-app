@@ -72,6 +72,12 @@
             android:theme="@style/AppTheme.IncomingCall.Starting"
             android:turnScreenOn="true" />
 
+        <activity
+            android:name=".CallAnswerActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@style/AppTheme.CallAnswer" />
+
         <receiver
             android:name=".CallActionReceiver"
             android:exported="false" />

@@ -33,7 +33,7 @@ final class IncomingCallNotifier {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
 
-        PendingIntent answerIntent = actionIntent(context, CallActionReceiver.ACTION_ANSWER, requestCode);
+        PendingIntent answerIntent = answerIntent(context, requestCode);
         PendingIntent declineIntent = actionIntent(context, CallActionReceiver.ACTION_DECLINE, requestCode + 1);
 
         NotificationCompat.Builder notification = new NotificationCompat.Builder(context, INCOMING_CHANNEL_ID)
@@ -62,6 +62,16 @@ final class IncomingCallNotifier {
     private static PendingIntent actionIntent(Context context, String action, int requestCode) {
         Intent intent = new Intent(context, CallActionReceiver.class).setAction(action);
         return PendingIntent.getBroadcast(
+                context,
+                requestCode,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+    }
+
+    private static PendingIntent answerIntent(Context context, int requestCode) {
+        Intent intent = new Intent(context, CallAnswerActivity.class);
+        return PendingIntent.getActivity(
                 context,
                 requestCode,
                 intent,

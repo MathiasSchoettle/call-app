@@ -4,6 +4,16 @@
       <p class="eyebrow">CAPACITOR + NUXT</p>
       <h1 id="title">VoIP Prototype</h1>
       <p>Hello from the Capacitor WebView.</p>
+      <div v-if="call.state === 'active'" class="active-call" aria-live="polite">
+        <div>
+          <p class="label">Active call</p>
+          <p class="caller">{{ call.caller }}</p>
+          <p class="status">Call in progress</p>
+        </div>
+        <button type="button" class="hang-up" :disabled="hangingUp" @click="hangUp">
+          {{ hangingUp ? 'Ending call…' : 'Hang up' }}
+        </button>
+      </div>
       <div class="push-debug">
         <p class="label">Firebase test-device token</p>
         <p class="status">{{ tokenStatus }}</p>
@@ -17,16 +27,34 @@
 </template>
 
 <script setup lang="ts">
-import { Capacitor, registerPlugin } from '@capacitor/core'
+import { Capacitor, registerPlugin, type PluginListenerHandle } from '@capacitor/core'
 
 interface PushDebugPlugin {
   getRegistrationToken(): Promise<{ token: string }>
 }
 
+type CallState = 'ringing' | 'active' | 'ended'
+
+interface CallStatus {
+  state: CallState
+  callId?: string
+  caller?: string
+}
+
+interface CallPlugin {
+  getCurrentCall(): Promise<CallStatus>
+  hangUp(): Promise<void>
+  addListener(eventName: 'callStateChanged', listenerFunc: (event: CallStatus) => void): Promise<PluginListenerHandle>
+}
+
 const PushDebug = registerPlugin<PushDebugPlugin>('PushDebug')
+const Call = registerPlugin<CallPlugin>('Call')
 const registrationToken = ref('')
 const tokenStatus = ref('Firebase is not checked yet.')
 const loadingToken = ref(false)
+const call = ref<CallStatus>({ state: 'ended' })
+const hangingUp = ref(false)
+let callStateListener: PluginListenerHandle | undefined
 
 async function loadRegistrationToken() {
   if (!Capacitor.isNativePlatform()) {
@@ -49,7 +77,47 @@ async function loadRegistrationToken() {
   }
 }
 
-onMounted(loadRegistrationToken)
+async function loadCallState() {
+  if (!Capacitor.isNativePlatform()) {
+    return
+  }
+
+  try {
+    call.value = await Call.getCurrentCall()
+  } catch (error) {
+    console.error('Could not read native call state.', error)
+  }
+}
+
+async function hangUp() {
+  if (!Capacitor.isNativePlatform()) {
+    return
+  }
+
+  hangingUp.value = true
+  try {
+    await Call.hangUp()
+    call.value = { state: 'ended' }
+  } catch (error) {
+    console.error('Could not hang up the native call.', error)
+  } finally {
+    hangingUp.value = false
+  }
+}
+
+onMounted(async () => {
+  await loadCallState()
+  if (Capacitor.isNativePlatform()) {
+    callStateListener = await Call.addListener('callStateChanged', (event) => {
+      call.value = event
+    })
+  }
+  await loadRegistrationToken()
+})
+
+onUnmounted(() => {
+  callStateListener?.remove()
+})
 </script>
 
 <style>
@@ -93,6 +161,34 @@ p { color: #c6cad6; line-height: 1.5; }
   margin-top: 28px;
   padding-top: 20px;
   border-top: 1px solid #303748;
+}
+
+.active-call {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px solid #405b9d;
+  border-radius: 14px;
+  background: #202b49;
+}
+
+.active-call p { margin: 0; }
+
+.caller {
+  margin-top: 4px !important;
+  color: #f7f8ff;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.active-call .status { margin-top: 4px; }
+
+.hang-up {
+  flex: 0 0 auto;
+  background: #ff8c8c;
 }
 
 .label {

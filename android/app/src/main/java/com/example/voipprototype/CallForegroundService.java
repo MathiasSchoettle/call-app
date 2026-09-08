@@ -12,6 +12,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.Person;
 import androidx.core.content.ContextCompat;
 
 /** Keeps an answered call visible to Android as an active phone-call foreground service. */
@@ -61,6 +62,18 @@ public final class CallForegroundService extends Service {
                 hangUp,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
+        Intent openApp = new Intent(this, MainActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent openAppIntent = PendingIntent.getActivity(
+                this,
+                3002,
+                openApp,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+        Person callerPerson = new Person.Builder()
+                .setName(caller == null ? "Mock caller" : caller)
+                .setImportant(true)
+                .build();
 
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -68,7 +81,8 @@ public final class CallForegroundService extends Service {
                 .setContentText("Mock VoIP call in progress")
                 .setCategory(NotificationCompat.CATEGORY_CALL)
                 .setOngoing(true)
-                .addAction(0, "Hang up", hangUpIntent);
+                .setContentIntent(openAppIntent)
+                .setStyle(NotificationCompat.CallStyle.forOngoingCall(callerPerson, hangUpIntent));
 
         startForeground(NOTIFICATION_ID, notification.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL);
     }

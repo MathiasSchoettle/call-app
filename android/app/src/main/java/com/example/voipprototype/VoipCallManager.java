@@ -82,6 +82,7 @@ public final class VoipCallManager {
         }
         if (currentCall == null) {
             currentCall = new CallSession(callId, caller);
+            CallPlugin.notifyCallState("ringing", currentCall);
         }
         currentConnection = new MockVoipConnection(context, currentCall.id, currentCall.caller);
         if (currentCall.answerRequested) {
@@ -91,7 +92,9 @@ public final class VoipCallManager {
     }
 
     public static synchronized void answer(Context context) {
+        Log.i(TAG, "Answer requested");
         if (currentCall == null) {
+            Log.w(TAG, "Ignoring answer because there is no current call");
             return;
         }
         currentCall.answerRequested = true;
@@ -100,6 +103,7 @@ public final class VoipCallManager {
         }
         IncomingCallNotifier.cancelIncoming(context);
         CallForegroundService.start(context, currentCall);
+        CallPlugin.notifyCallState("active", currentCall);
     }
 
     public static synchronized void decline(Context context) {
@@ -112,6 +116,10 @@ public final class VoipCallManager {
         clear(context);
     }
 
+    public static synchronized void hangUp(Context context) {
+        decline(context);
+    }
+
     static synchronized void onConnectionDisconnected(Context context, MockVoipConnection connection) {
         if (connection == currentConnection) {
             clear(context);
@@ -119,10 +127,18 @@ public final class VoipCallManager {
     }
 
     public static synchronized void clear(Context context) {
+        CallSession endedCall = currentCall;
         currentCall = null;
         currentConnection = null;
         IncomingCallNotifier.cancelIncoming(context);
         CallForegroundService.stop(context);
+        if (endedCall != null) {
+            CallPlugin.notifyCallState("ended", endedCall);
+        }
+    }
+
+    static synchronized CallSession getCurrentCall() {
+        return currentCall;
     }
 
     private static PhoneAccountHandle phoneAccountHandle(Context context) {
