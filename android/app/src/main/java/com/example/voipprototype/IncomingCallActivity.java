@@ -40,7 +40,7 @@ public final class IncomingCallActivity extends Activity {
     }
 
     private void openMainActivity() {
-        getApplicationContext().startActivity(new Intent(this, MainActivity.class)
+        getApplicationContext().startActivity(VoipCallManager.createMainActivityIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                         | Intent.FLAG_ACTIVITY_CLEAR_TASK
                         | Intent.FLAG_ACTIVITY_CLEAR_TOP

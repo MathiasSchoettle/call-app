@@ -2,6 +2,7 @@ package com.example.voipprototype;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
 import android.net.Uri;
@@ -22,6 +23,7 @@ public final class VoipCallManager {
     private static final String ACCOUNT_ID = "voip_prototype";
     static final String EXTRA_CALL_ID = "com.example.voipprototype.CALL_ID";
     static final String EXTRA_CALLER = "com.example.voipprototype.CALLER";
+    static final String EXTRA_SHOW_OVER_LOCKSCREEN = "com.example.voipprototype.SHOW_OVER_LOCKSCREEN";
 
     private static CallSession currentCall;
     private static MockVoipConnection currentConnection;
@@ -50,7 +52,7 @@ public final class VoipCallManager {
         }
 
         registerPhoneAccount(context);
-        currentCall = new CallSession(callId, caller, isDeviceLocked(context));
+        currentCall = new CallSession(callId, caller);
         IncomingCallNotifier.show(context, currentCall);
 
         TelecomManager telecom = context.getSystemService(TelecomManager.class);
@@ -85,7 +87,7 @@ public final class VoipCallManager {
             return rejected;
         }
         if (currentCall == null) {
-            currentCall = new CallSession(callId, caller, isDeviceLocked(context));
+            currentCall = new CallSession(callId, caller);
             CallPlugin.notifyCallState("ringing", currentCall);
         }
         currentConnection = new MockVoipConnection(context, currentCall.id, currentCall.caller);
@@ -101,6 +103,7 @@ public final class VoipCallManager {
             Log.w(TAG, "Ignoring answer because there is no current call");
             return;
         }
+        currentCall.answeredLocked = isDeviceLocked(context);
         currentCall.answerRequested = true;
         if (currentConnection != null) {
             currentConnection.markAnswered();
@@ -138,7 +141,7 @@ public final class VoipCallManager {
         CallForegroundService.stop(context);
         if (endedCall != null) {
             CallPlugin.notifyCallState("ended", endedCall);
-            if (endedCall.startedLocked) {
+            if (endedCall.answeredLocked) {
                 new Handler(Looper.getMainLooper()).postDelayed(
                         () -> closeAppTasks(context),
                         300
@@ -149,6 +152,14 @@ public final class VoipCallManager {
 
     static synchronized CallSession getCurrentCall() {
         return currentCall;
+    }
+
+    static synchronized Intent createMainActivityIntent(Context context) {
+        return new Intent(context, MainActivity.class)
+                .putExtra(
+                        EXTRA_SHOW_OVER_LOCKSCREEN,
+                        currentCall != null && currentCall.answeredLocked
+                );
     }
 
     private static boolean isDeviceLocked(Context context) {
@@ -177,13 +188,12 @@ public final class VoipCallManager {
     static final class CallSession {
         final String id;
         final String caller;
-        final boolean startedLocked;
         boolean answerRequested;
+        boolean answeredLocked;
 
-        CallSession(String id, String caller, boolean startedLocked) {
+        CallSession(String id, String caller) {
             this.id = id;
             this.caller = caller;
-            this.startedLocked = startedLocked;
         }
     }
 }

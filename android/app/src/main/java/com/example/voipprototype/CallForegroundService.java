@@ -2,6 +2,7 @@ package com.example.voipprototype;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
@@ -18,7 +19,7 @@ import androidx.core.content.ContextCompat;
 /** Keeps an answered call visible to Android as an active phone-call foreground service. */
 public final class CallForegroundService extends Service {
     private static final String ACTION_START = "com.example.voipprototype.START_ACTIVE_CALL";
-    private static final String CHANNEL_ID = "active_calls";
+    private static final String CHANNEL_ID = "active_calls_v2";
     private static final int NOTIFICATION_ID = 2002;
     private static final String EXTRA_CALLER = "caller";
 
@@ -62,7 +63,7 @@ public final class CallForegroundService extends Service {
                 hangUp,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
-        Intent openApp = new Intent(this, MainActivity.class)
+        Intent openApp = VoipCallManager.createMainActivityIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent openAppIntent = PendingIntent.getActivity(
                 this,
@@ -80,7 +81,10 @@ public final class CallForegroundService extends Service {
                 .setContentTitle(caller == null ? "Mock caller" : caller)
                 .setContentText("Mock VoIP call in progress")
                 .setCategory(NotificationCompat.CATEGORY_CALL)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setOngoing(true)
+                .setOnlyAlertOnce(true)
+                .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
                 .setContentIntent(openAppIntent)
                 .setStyle(NotificationCompat.CallStyle.forOngoingCall(callerPerson, hangUpIntent));
 
@@ -91,9 +95,12 @@ public final class CallForegroundService extends Service {
         NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
                 "Active calls",
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_DEFAULT
         );
         channel.setDescription("Ongoing VoIP calls.");
+        channel.setSound(null, null);
+        channel.enableVibration(false);
+        channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
         getSystemService(NotificationManager.class).createNotificationChannel(channel);
     }
 }

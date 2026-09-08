@@ -16,7 +16,7 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(PushDebugPlugin.class);
         registerPlugin(CallPlugin.class);
         super.onCreate(savedInstanceState);
-        configureForLockscreen();
+        configureForLockscreen(getIntent());
         VoipCallManager.registerPhoneAccount(this);
         requestNotificationPermission();
     }
@@ -25,13 +25,21 @@ public class MainActivity extends BridgeActivity {
     protected void onNewIntent(android.content.Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        configureForLockscreen();
+        configureForLockscreen(intent);
     }
 
-    private void configureForLockscreen() {
-        setShowWhenLocked(true);
-        setTurnScreenOn(true);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    private void configureForLockscreen(android.content.Intent intent) {
+        boolean showOverLockscreen = intent.getBooleanExtra(
+                VoipCallManager.EXTRA_SHOW_OVER_LOCKSCREEN,
+                false
+        );
+        setShowWhenLocked(showOverLockscreen);
+        setTurnScreenOn(showOverLockscreen);
+        if (showOverLockscreen) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        } else {
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
     }
 
     private void requestNotificationPermission() {

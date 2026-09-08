@@ -15,7 +15,7 @@ public final class CallAnswerActivity extends Activity {
         Log.i(TAG, "Notification answer activity opened");
 
         VoipCallManager.answer(this);
-        startActivity(new Intent(this, MainActivity.class)
+        startActivity(VoipCallManager.createMainActivityIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
         finish();
     }

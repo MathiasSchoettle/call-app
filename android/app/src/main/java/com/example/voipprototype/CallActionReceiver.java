@@ -15,7 +15,7 @@ public final class CallActionReceiver extends BroadcastReceiver {
         String action = intent.getAction();
         if (ACTION_ANSWER.equals(action)) {
             VoipCallManager.answer(context);
-            Intent openApp = new Intent(context, MainActivity.class)
+            Intent openApp = VoipCallManager.createMainActivityIntent(context)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                             | Intent.FLAG_ACTIVITY_CLEAR_TOP
                             | Intent.FLAG_ACTIVITY_SINGLE_TOP);
