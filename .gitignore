@@ -2,9 +2,11 @@ node_modules/
 .nuxt/
 .output/
 dist/
+dist
 .gradle/
 .idea/
 android/.gradle/
 android/build/
 android/app/build/
 local.properties
+android/app/google-services.json

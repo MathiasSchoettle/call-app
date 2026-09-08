@@ -1,9 +1,9 @@
 # VoIP Capacitor prototype
 
-This is the first milestone only: a Nuxt hello-world app packaged in an Android
-Capacitor WebView. It deliberately contains no Firebase, WebSocket, JsSIP,
-Telecom, foreground-service, or audio implementation yet. Those arrive after
-the environment has been proven on a real device.
+This is a Nuxt hello-world app packaged in an Android Capacitor WebView. Native
+FCM handling and a mocked Android incoming-call flow are included for testing;
+WebSocket, JsSIP, production Telecom, and audio integration are still future
+milestones.
 
 ## Requirements
 
@@ -20,7 +20,7 @@ to **33** (Android 13) and its `minSdkVersion` is also **33** (Android 13) in
 
 ## Run the web app in a browser
 
-```powershell
+```sh
 npm install
 npm run dev
 ```
@@ -30,7 +30,7 @@ and “Hello from the Capacitor WebView.”
 
 ## Build and run Android
 
-```powershell
+```sh
 npm install
 npm run android:sync
 npm run android:open
@@ -42,8 +42,8 @@ Studio; select a device and press Run.
 
 To build an APK without opening Android Studio:
 
-```powershell
-.\android\gradlew.bat assembleDebug
+```sh
+./android/gradlew assembleDebug
 ```
 
 The debug APK is written to
@@ -63,3 +63,6 @@ are correctly wired for the next milestone.
 Native Android Firebase Cloud Messaging handling is now included. Add your
 Firebase project’s `google-services.json` to `android/app/`, rebuild the app,
 and follow [the FCM test-push tutorial](docs/fcm-test-push.md).
+
+For a complete macOS recovery sequence, see
+[the recovery plan](docs/recovery-plan.md).
