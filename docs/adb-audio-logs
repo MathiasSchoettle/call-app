@@ -1,0 +1,513 @@
+37-  AudioPlaybackConfiguration piid:311 deviceIds:[] type:android.media.SoundPool u/pid:10130/15823 state:idle attr:AudioAttributes: usage=USAGE_ASSISTANCE_SONIFICATION content=CONTENT_TYPE_SONIFICATION flags=0x0 tags= bundle=null sessionId:0 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x0, sampleRate=0}
+38-  AudioPlaybackConfiguration piid:319 deviceIds:[] type:android.media.SoundPool u/pid:10130/15823 state:idle attr:AudioAttributes: usage=USAGE_ASSISTANCE_ACCESSIBILITY content=CONTENT_TYPE_SONIFICATION flags=0x0 tags= bundle=null sessionId:0 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x0, sampleRate=0}
+39-  AudioPlaybackConfiguration piid:327 deviceIds:[] type:android.media.SoundPool u/pid:10130/15823 state:idle attr:AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_SONIFICATION flags=0x801(FLAG_AUDIBILITY_ENFORCED+FLAG_MUTE_HAPTIC)  tags= bundle=null sessionId:0 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x0, sampleRate=0}
+40:  AudioPlaybackConfiguration piid:719 deviceIds:[3] type:AAudio u/pid:10344/16239 state:started attr:AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null sessionId:-1 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x3, sampleRate=48000}
+41-
+42-  ducked players piids:
+43-
+--
+81-09-08 16:22:33:858 player piid:631 event:device updated deviceIds:[4]
+82-09-08 16:22:36:628 player piid:631 event:stopped
+83-09-08 16:22:36:650 releasing player piid:631, uid:10235
+84:09-08 16:22:37:336 new player piid:647 uid/pid:10344/16239 package:com.example.voipprototype type:AAudio attr:AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null session:-1
+85-09-08 16:22:37:336 port updated portId:[183] mapped to player piid:647
+86-09-08 16:22:37:391 player piid:647 event:muted updated source:none
+87-09-08 16:22:37:391 player piid:647 format update:FormatInfo{isSpatialized=false, channelMask=0x3, sampleRate=48000}
+--
+105-09-08 16:23:01:956 player piid:655 event:device updated deviceIds:[4]
+106-09-08 16:23:02:531 player piid:655 event:stopped
+107-09-08 16:23:02:555 releasing player piid:655, uid:10235
+108:09-08 16:23:03:543 new player piid:671 uid/pid:10344/16239 package:com.example.voipprototype type:AAudio attr:AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null session:-1
+109-09-08 16:23:03:543 port updated portId:[189] mapped to player piid:671
+110-09-08 16:23:03:603 player piid:671 event:muted updated source:none
+111-09-08 16:23:03:603 player piid:671 event:device updated deviceIds:[3]
+--
+128-09-08 16:31:48:329 player piid:679 event:muted updated source:none
+129-09-08 16:31:48:330 player piid:679 format update:FormatInfo{isSpatialized=false, channelMask=0x20000001, sampleRate=48000}
+130-09-08 16:31:48:332 releasing player piid:679, uid:10235
+131:09-08 16:31:49:134 new player piid:695 uid/pid:10344/16239 package:com.example.voipprototype type:AAudio attr:AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null session:-1
+132-09-08 16:31:49:135 port updated portId:[195] mapped to player piid:695
+133-09-08 16:31:49:186 player piid:695 event:muted updated source:none
+134-09-08 16:31:49:188 player piid:695 event:device updated deviceIds:[3]
+--
+150-09-08 16:37:23:261 player piid:703 event:device updated deviceIds:[4]
+151-09-08 16:37:24:091 player piid:703 event:stopped
+152-09-08 16:37:24:094 releasing player piid:703, uid:10235
+153:09-08 16:37:25:122 new player piid:719 uid/pid:10344/16239 package:com.example.voipprototype type:AAudio attr:AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null session:-1
+154-09-08 16:37:25:122 port updated portId:[200] mapped to player piid:719
+155-09-08 16:37:25:180 player piid:719 event:muted updated source:none
+156-09-08 16:37:25:182 player piid:719 event:device updated deviceIds:[3]
+--
+162-  uid: 10159 policy: 2
+163-## RecordActivityMonitor
+164-riid 711; active? true
+165:  session:1449 -- source client=VOICE_COMMUNICATION, dev=1ch 48000Hz ENCODING_PCM_16BIT -- uid:10344 -- patch:199 -- pack:com.example.voipprototype -- format client=1ch 48000Hz ENCODING_PCM_FLOAT, dev=1ch 48000Hz ENCODING_PCM_16BIT -- silenced:false -- effects client='Acoustic Echo Canceler' 'Noise Suppression' , dev='Acoustic Echo Canceler' 'Noise Suppression'
+166-
+167-
+168-### Recording Activity
+169:09-08 15:31:24:447 rec update riid:463 uid:10344 session:833 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+170:09-08 15:32:28:672 rec stop riid:463 uid:10344 session:833 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+171:09-08 15:32:40:532 rec start riid:487 uid:10344 session:913 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+172:09-08 15:33:07:566 rec stop riid:487 uid:10344 session:913 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+173:09-08 15:33:15:056 rec start riid:511 uid:10344 session:961 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+174:09-08 15:33:25:104 rec stop riid:511 uid:10344 session:961 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+175:09-08 15:33:33:041 rec start riid:535 uid:10344 session:1017 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+176:09-08 15:34:17:737 rec stop riid:535 uid:10344 session:1017 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+177:09-08 15:36:59:145 rec update riid:559 uid:10344 session:1089 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+178:09-08 15:37:08:433 rec stop riid:559 uid:10344 session:1089 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+179:09-08 16:21:46:265 rec start riid:583 uid:10344 session:1177 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+180:09-08 16:21:51:098 rec stop riid:583 uid:10344 session:1177 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+181:09-08 16:21:59:373 rec update riid:607 uid:10344 session:1225 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+182:09-08 16:22:05:053 rec stop riid:607 uid:10344 session:1225 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+183:09-08 16:22:37:179 rec start riid:639 uid:10344 session:1313 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+184:09-08 16:22:38:958 rec stop riid:639 uid:10344 session:1313 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+185:09-08 16:23:03:365 rec start riid:663 uid:10344 session:1361 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+186:09-08 16:23:05:139 rec stop riid:663 uid:10344 session:1361 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+187:09-08 16:31:48:965 rec update riid:687 uid:10344 session:1409 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+188:09-08 16:32:02:251 rec stop riid:687 uid:10344 session:1409 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+189:09-08 16:37:24:952 rec update riid:711 uid:10344 session:1449 src:VOICE_COMMUNICATION not silenced pack:com.example.voipprototype
+190-
+191-  mHardeningOverride=0
+192-## Hardening enforcement
+--
+210-09-08 15:17:26:693 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@4d2be91 callingPack=com.android.systemui
+211-09-08 15:17:40:599 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_SONIFICATION clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+212-09-08 15:17:40:693 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@ed6663 callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+213:09-08 15:17:43:660 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_VOICE_COMMUNICATION/CONTENT_TYPE_SPEECH clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+214-09-08 15:17:43:691 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@ed6663 callingPack=com.android.systemui
+215-09-08 15:17:46:356 abandonAudioFocus() from uid/pid 1000/1639 clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom
+216-09-08 15:25:38:424 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@f23de86 callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+217-09-08 15:25:40:668 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@f23de86 callingPack=com.android.systemui
+218-09-08 15:31:20:139 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_SONIFICATION clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+219-09-08 15:31:20:587 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@b3b0d12 callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+220:09-08 15:31:22:597 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_VOICE_COMMUNICATION/CONTENT_TYPE_SPEECH clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+221-09-08 15:31:22:639 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@b3b0d12 callingPack=com.android.systemui
+222-09-08 15:32:29:298 abandonAudioFocus() from uid/pid 1000/1639 clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom
+223-09-08 15:32:38:104 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@b13fc38 callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+--
+227-09-08 15:33:30:792 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@daa5efc callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+228-09-08 15:33:30:800 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_SONIFICATION clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+229-09-08 15:33:30:801 focus owner: android.media.AudioManager@daa5efc in uid: 10235 pack: com.android.systemui code: -2 event: handleLoss
+230:09-08 15:33:32:450 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_VOICE_COMMUNICATION/CONTENT_TYPE_SPEECH clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+231-09-08 15:33:32:465 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@daa5efc callingPack=com.android.systemui
+232-09-08 15:34:18:878 abandonAudioFocus() from uid/pid 1000/1639 clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom
+233-09-08 15:36:57:180 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_SONIFICATION clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+234-09-08 15:36:57:550 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@4007256 callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+235:09-08 15:36:58:580 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_VOICE_COMMUNICATION/CONTENT_TYPE_SPEECH clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+236-09-08 15:36:58:609 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@4007256 callingPack=com.android.systemui
+237-09-08 15:37:08:853 abandonAudioFocus() from uid/pid 1000/1639 clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom
+238-09-08 16:21:44:066 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_SONIFICATION clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+239-09-08 16:21:44:141 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@24e4ddd callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+240:09-08 16:21:45:711 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_VOICE_COMMUNICATION/CONTENT_TYPE_SPEECH clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+241-09-08 16:21:45:718 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@24e4ddd callingPack=com.android.systemui
+242-09-08 16:21:52:124 abandonAudioFocus() from uid/pid 1000/1639 clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom
+243-09-08 16:21:57:031 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@9e00335 callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+--
+246-09-08 16:22:21:614 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@974e8d0 callingPack=com.android.systemui
+247-09-08 16:22:32:553 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_SONIFICATION clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+248-09-08 16:22:32:974 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@c552602 callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+249:09-08 16:22:36:628 requestAudioFocus() from uid/pid 1000/1639 AA=USAGE_VOICE_COMMUNICATION/CONTENT_TYPE_SPEECH clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom req=2 flags=0x4 sdk=37
+250-09-08 16:22:36:658 abandonAudioFocus() from uid/pid 10235/4064 clientId=android.media.AudioManager@c552602 callingPack=com.android.systemui
+251-09-08 16:22:40:035 abandonAudioFocus() from uid/pid 1000/1639 clientId=android.media.AudioManager@50c5dd3 callingPack=com.android.server.telecom
+252-09-08 16:23:01:132 requestAudioFocus() from uid/pid 10235/4064 AA=USAGE_NOTIFICATION_RINGTONE/CONTENT_TYPE_UNKNOWN clientId=android.media.AudioManager@307ecb0 callingPack=com.android.systemui req=3 flags=0x0 sdk=37
+--
+303-  RouteSelectionStack:
+304-    Mode owner token: android.os.BinderProxy@fca6790
+305-    Clients (top of stack first):
+306:      [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] (mode owner)
+307-
+308-  Computed Preferred communication device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]
+309-
+--
+334-  mAvrcpAbsVolSupported: false
+335-
+336-## Audio mode:
+337:- Requested mode = MODE_IN_COMMUNICATION
+338:- Actual mode = MODE_IN_COMMUNICATION
+339-- Mode owner:
+340:  - Mode: MODE_IN_COMMUNICATION
+341-  - Binder: android.os.BinderProxy@fca6790
+342-  - Pid: 16239
+343-  - Uid: 10344
+344:  - Package: com.example.voipprototype
+345-  - Privileged: false
+346-  - Active: true
+347-    Playback active: true
+--
+349-  - update time: 09-08 16:37:24:506
+350-- Mode owner stack:
+351-  Requester # 1:
+352:  - Mode: MODE_IN_COMMUNICATION
+353-  - Binder: android.os.BinderProxy@fca6790
+354-  - Pid: 16239
+355-  - Uid: 10344
+356:  - Package: com.example.voipprototype
+357-  - Privileged: false
+358-  - Active: true
+359-    Playback active: true
+--
+362-
+363-## Routing events
+364-### Phone state changes
+365:09-08 15:34:20:114 setMode(MODE_NORMAL) from package=com.example.voipprototype pid=13327 selected mode=MODE_NORMAL by pid=0
+366-09-08 15:36:57:236 setMode(MODE_RINGTONE) from package=com.android.server.telecom pid=1639 selected mode=MODE_RINGTONE by pid=1639
+367:09-08 15:36:59:065 setMode(MODE_IN_COMMUNICATION) from package=com.android.server.telecom pid=1639 selected mode=MODE_IN_COMMUNICATION by pid=1639
+368:09-08 15:37:08:413 setMode(MODE_NORMAL) from package=com.android.server.telecom pid=1639 selected mode=MODE_IN_COMMUNICATION by pid=13828
+369:09-08 15:37:09:057 setMode(MODE_NORMAL) from package=com.example.voipprototype pid=13828 selected mode=MODE_NORMAL by pid=0
+370-09-08 16:21:44:074 setMode(MODE_RINGTONE) from package=com.android.server.telecom pid=1639 selected mode=MODE_RINGTONE by pid=1639
+371:09-08 16:21:46:189 setMode(MODE_IN_COMMUNICATION) from package=com.android.server.telecom pid=1639 selected mode=MODE_IN_COMMUNICATION by pid=1639
+372:09-08 16:21:51:052 setMode(MODE_NORMAL) from package=com.android.server.telecom pid=1639 selected mode=MODE_IN_COMMUNICATION by pid=15703
+373:09-08 16:21:53:233 setMode(MODE_NORMAL) from package=com.example.voipprototype pid=15703 selected mode=MODE_NORMAL by pid=0
+374:09-08 16:21:59:315 setMode(MODE_IN_COMMUNICATION) from package=com.example.voipprototype pid=15703 selected mode=MODE_IN_COMMUNICATION by pid=15703
+375:09-08 16:22:07:068 setMode(MODE_NORMAL) from package=com.example.voipprototype pid=15703 selected mode=MODE_NORMAL by pid=0
+376-09-08 16:22:32:933 setMode(MODE_RINGTONE) from package=com.android.server.telecom pid=1639 selected mode=MODE_RINGTONE by pid=1639
+377:09-08 16:22:37:119 setMode(MODE_IN_COMMUNICATION) from package=com.android.server.telecom pid=1639 selected mode=MODE_IN_COMMUNICATION by pid=1639
+378:09-08 16:22:38:956 setMode(MODE_NORMAL) from package=com.android.server.telecom pid=1639 selected mode=MODE_IN_COMMUNICATION by pid=16239
+379:09-08 16:22:41:505 setMode(MODE_NORMAL) from package=com.example.voipprototype pid=16239 selected mode=MODE_NORMAL by pid=0
+380:09-08 16:23:03:298 setMode(MODE_IN_COMMUNICATION) from package=com.example.voipprototype pid=16239 selected mode=MODE_IN_COMMUNICATION by pid=16239
+381:09-08 16:23:06:797 setMode(MODE_NORMAL) from package=com.example.voipprototype pid=16239 selected mode=MODE_NORMAL by pid=0
+382:09-08 16:31:48:911 setMode(MODE_IN_COMMUNICATION) from package=com.example.voipprototype pid=16239 selected mode=MODE_IN_COMMUNICATION by pid=16239
+383:09-08 16:32:03:892 setMode(MODE_NORMAL) from package=com.example.voipprototype pid=16239 selected mode=MODE_NORMAL by pid=0
+384:09-08 16:37:24:876 setMode(MODE_IN_COMMUNICATION) from package=com.example.voipprototype pid=16239 selected mode=MODE_IN_COMMUNICATION by pid=16239
+385-
+386-### Device connections
+387-09-08 16:21:44:122 setCommunicationRouteForClient for uid: 1000 device: AudioDeviceAttributes: role:output type:earpiece addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x04, encapsulation type=0}] descriptors:[] isPrivileged: true from API: setCommunicationDevice() from u/pid:1000/1639
+--
+399-09-08 16:21:46:203 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:earpiece addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x04, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+400-09-08 16:21:46:231 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/15703
+401-09-08 16:21:46:232 removeClient: null -> [1000(telec)|ear_|a|e:o]
+402:09-08 16:21:46:232 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [1000(telec)|ear_|a|e:o, 10344(voipp)|spe_|a|e:]
+403-09-08 16:21:46:232 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/15703
+404-09-08 16:21:46:232 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:earpiece addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x04, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/15703
+405-09-08 16:21:51:109 setCommunicationRouteForClient for uid: 1000 device: null isPrivileged: true from API: clearCommunicationDevice() from u/pid:1000/1639
+--
+408-09-08 16:21:51:110 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: clearCommunicationDevice() from u/pid:1000/1639
+409-09-08 16:21:51:490 setModeOwnerToken: android.os.BinderProxy@c887ad4 -> [10344(voipp)|spe_|a|e:o]
+410-09-08 16:21:51:490 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+411:09-08 16:21:51:491 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+412:09-08 16:21:51:491 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+413:09-08 16:21:51:491 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+414-09-08 16:21:51:491 stopBluetoothSco: setNewModeOwner
+415-09-08 16:21:51:491 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+416-09-08 16:21:52:121 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+417-09-08 16:21:52:123 setCommunicationRouteForClient for uid: 10344 device: null isPrivileged: false from API: clearCommunicationDevice() from u/pid:10344/15703
+418:09-08 16:21:52:124 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+419-09-08 16:21:52:124 stopBluetoothSco: clearCommunicationDevice() from u/pid:10344/15703
+420-09-08 16:21:52:124 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: clearCommunicationDevice() from u/pid:10344/15703
+421-09-08 16:21:52:747 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: earpiece addr:  id: 2
+--
+424-09-08 16:21:53:627 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: setNewModeOwner
+425-09-08 16:21:58:583 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/15703
+426-09-08 16:21:58:583 removeClient: null -> []
+427:09-08 16:21:58:583 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:]
+428-09-08 16:21:58:583 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/15703
+429-09-08 16:21:58:583 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/15703
+430-09-08 16:21:58:910 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+431-09-08 16:21:59:355 setModeOwnerToken: android.os.BinderProxy@c887ad4 -> [10344(voipp)|spe_|a|e:o]
+432-09-08 16:21:59:356 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+433:09-08 16:21:59:356 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+434:09-08 16:21:59:356 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+435:09-08 16:21:59:356 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+436-09-08 16:21:59:356 stopBluetoothSco: setNewModeOwner
+437-09-08 16:21:59:358 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+438-09-08 16:22:05:078 setCommunicationRouteForClient for uid: 10344 device: null isPrivileged: false from API: clearCommunicationDevice() from u/pid:10344/15703
+439:09-08 16:22:05:079 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+440-09-08 16:22:05:079 stopBluetoothSco: clearCommunicationDevice() from u/pid:10344/15703
+441-09-08 16:22:05:079 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: clearCommunicationDevice() from u/pid:10344/15703
+442-09-08 16:22:05:743 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: earpiece addr:  id: 2
+443-09-08 16:22:05:778 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/15703
+444-09-08 16:22:05:778 removeClient: null -> []
+445:09-08 16:22:05:778 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+446-09-08 16:22:05:779 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/15703
+447-09-08 16:22:05:779 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/15703
+448-09-08 16:22:06:445 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+449-09-08 16:22:07:094 setModeOwnerToken: null -> [10344(voipp)|spe_|a|e:]
+450-09-08 16:22:07:094 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+451:09-08 16:22:07:095 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+452:09-08 16:22:07:095 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+453:09-08 16:22:07:095 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:]
+454-09-08 16:22:07:095 stopBluetoothSco: setNewModeOwner
+455-09-08 16:22:07:095 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+456-09-08 16:22:13:098 updateActiveForUid 10344false[10344(voipp)|spe_|i|e:]
+--
+458-09-08 16:22:13:099 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: updateCommunicationClientActivity
+459-09-08 16:22:13:491 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: earpiece addr:  id: 2
+460-09-08 16:22:23:843 setCommunicationRouteForClient for uid: 10344 device: null isPrivileged: false from API: onCommunicationRouteClientDied
+461:09-08 16:22:23:847 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: false mDisabled: false] -> []
+462-09-08 16:22:23:847 stopBluetoothSco: onCommunicationRouteClientDied
+463-09-08 16:22:23:847 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: onCommunicationRouteClientDied
+464-09-08 16:22:32:560 setCommunicationRouteForClient for uid: 1000 device: AudioDeviceAttributes: role:output type:earpiece addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x04, encapsulation type=0}] descriptors:[] isPrivileged: true from API: setCommunicationDevice() from u/pid:1000/1639
+--
+476-09-08 16:22:37:135 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:earpiece addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x04, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+477-09-08 16:22:37:151 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/16239
+478-09-08 16:22:37:151 removeClient: null -> [1000(telec)|ear_|a|e:o]
+479:09-08 16:22:37:151 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [1000(telec)|ear_|a|e:o, 10344(voipp)|spe_|a|e:]
+480-09-08 16:22:37:151 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/16239
+481-09-08 16:22:37:151 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:earpiece addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x04, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/16239
+482-09-08 16:22:38:992 setCommunicationRouteForClient for uid: 1000 device: null isPrivileged: true from API: clearCommunicationDevice() from u/pid:1000/1639
+--
+485-09-08 16:22:38:992 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: clearCommunicationDevice() from u/pid:1000/1639
+486-09-08 16:22:39:359 setModeOwnerToken: android.os.BinderProxy@6350c58 -> [10344(voipp)|spe_|a|e:o]
+487-09-08 16:22:39:359 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+488:09-08 16:22:39:360 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+489:09-08 16:22:39:360 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+490:09-08 16:22:39:360 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+491-09-08 16:22:39:360 stopBluetoothSco: setNewModeOwner
+492-09-08 16:22:39:360 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+493-09-08 16:22:40:031 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+494-09-08 16:22:40:033 setCommunicationRouteForClient for uid: 10344 device: null isPrivileged: false from API: clearCommunicationDevice() from u/pid:10344/16239
+495:09-08 16:22:40:034 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+496-09-08 16:22:40:034 stopBluetoothSco: clearCommunicationDevice() from u/pid:10344/16239
+497-09-08 16:22:40:034 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: clearCommunicationDevice() from u/pid:10344/16239
+498-09-08 16:22:40:706 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: earpiece addr:  id: 2
+--
+501-09-08 16:22:41:549 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: setNewModeOwner
+502-09-08 16:23:02:703 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/16239
+503-09-08 16:23:02:704 removeClient: null -> []
+504:09-08 16:23:02:704 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:]
+505-09-08 16:23:02:704 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/16239
+506-09-08 16:23:02:704 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/16239
+507-09-08 16:23:02:922 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+508-09-08 16:23:03:346 setModeOwnerToken: android.os.BinderProxy@fca6790 -> [10344(voipp)|spe_|a|e:o]
+509-09-08 16:23:03:347 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+510:09-08 16:23:03:347 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+511:09-08 16:23:03:347 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+512:09-08 16:23:03:348 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+513-09-08 16:23:03:348 stopBluetoothSco: setNewModeOwner
+514-09-08 16:23:03:348 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+515-09-08 16:23:05:141 setCommunicationRouteForClient for uid: 10344 device: null isPrivileged: false from API: clearCommunicationDevice() from u/pid:10344/16239
+516:09-08 16:23:05:141 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+517-09-08 16:23:05:141 stopBluetoothSco: clearCommunicationDevice() from u/pid:10344/16239
+518-09-08 16:23:05:141 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: clearCommunicationDevice() from u/pid:10344/16239
+519-09-08 16:23:05:796 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: earpiece addr:  id: 2
+520-09-08 16:23:05:805 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/16239
+521-09-08 16:23:05:805 removeClient: null -> []
+522:09-08 16:23:05:806 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+523-09-08 16:23:05:806 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/16239
+524-09-08 16:23:05:806 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/16239
+525-09-08 16:23:06:491 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+526-09-08 16:23:06:833 setModeOwnerToken: null -> [10344(voipp)|spe_|a|e:]
+527-09-08 16:23:06:833 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+528:09-08 16:23:06:834 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+529:09-08 16:23:06:834 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+530:09-08 16:23:06:835 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:]
+531-09-08 16:23:06:835 stopBluetoothSco: setNewModeOwner
+532-09-08 16:23:06:835 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+533-09-08 16:23:12:840 updateActiveForUid 10344false[10344(voipp)|spe_|i|e:]
+--
+535-09-08 16:23:12:842 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: updateCommunicationClientActivity
+536-09-08 16:23:13:036 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: earpiece addr:  id: 2
+537-09-08 16:31:48:235 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/16239
+538:09-08 16:31:48:235 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: false mDisabled: false] -> []
+539:09-08 16:31:48:235 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+540:09-08 16:31:48:235 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:]
+541-09-08 16:31:48:235 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/16239
+542-09-08 16:31:48:235 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/16239
+543-09-08 16:31:48:554 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+544-09-08 16:31:48:970 setModeOwnerToken: android.os.BinderProxy@fca6790 -> [10344(voipp)|spe_|a|e:o]
+545-09-08 16:31:48:970 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+546:09-08 16:31:48:971 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+547:09-08 16:31:48:971 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+548:09-08 16:31:48:971 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+549-09-08 16:31:48:971 stopBluetoothSco: setNewModeOwner
+550-09-08 16:31:48:971 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+551-09-08 16:32:02:258 setCommunicationRouteForClient for uid: 10344 device: null isPrivileged: false from API: clearCommunicationDevice() from u/pid:10344/16239
+552:09-08 16:32:02:259 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+553-09-08 16:32:02:259 stopBluetoothSco: clearCommunicationDevice() from u/pid:10344/16239
+554-09-08 16:32:02:259 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: clearCommunicationDevice() from u/pid:10344/16239
+555-09-08 16:32:02:919 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: earpiece addr:  id: 2
+556-09-08 16:32:02:930 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/16239
+557-09-08 16:32:02:930 removeClient: null -> []
+558:09-08 16:32:02:931 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+559-09-08 16:32:02:931 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/16239
+560-09-08 16:32:02:931 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/16239
+561-09-08 16:32:03:633 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+562-09-08 16:32:03:926 setModeOwnerToken: null -> [10344(voipp)|spe_|a|e:]
+563-09-08 16:32:03:926 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+564:09-08 16:32:03:927 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+565:09-08 16:32:03:927 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+566:09-08 16:32:03:928 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:]
+567-09-08 16:32:03:928 stopBluetoothSco: setNewModeOwner
+568-09-08 16:32:03:928 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+569-09-08 16:32:09:953 updateActiveForUid 10344false[10344(voipp)|spe_|i|e:]
+--
+571-09-08 16:32:09:953 updateCommunicationRoute, preferredCommunicationDevice: null eventSource: updateCommunicationClientActivity
+572-09-08 16:32:10:132 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: earpiece addr:  id: 2
+573-09-08 16:37:24:254 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setCommunicationDevice() from u/pid:10344/16239
+574:09-08 16:37:24:255 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: false mDisabled: false] -> []
+575:09-08 16:37:24:255 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+576:09-08 16:37:24:255 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:]
+577-09-08 16:37:24:256 stopBluetoothSco: setCommunicationDevice() from u/pid:10344/16239
+578-09-08 16:37:24:256 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setCommunicationDevice() from u/pid:10344/16239
+579-09-08 16:37:24:499 Dispatch onCommunicationDeviceChanged: AudioDeviceInfo: type: speaker addr:  id: 3
+580-09-08 16:37:24:927 setModeOwnerToken: android.os.BinderProxy@fca6790 -> [10344(voipp)|spe_|a|e:o]
+581-09-08 16:37:24:928 setCommunicationRouteForClient for uid: 10344 device: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] isPrivileged: false from API: setNewModeOwner
+582:09-08 16:37:24:932 removeClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> []
+583:09-08 16:37:24:932 client replacement: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false]
+584:09-08 16:37:24:933 addClient: [RouteClient: 10344(com.example.voipprototype) mDevice: Optional[AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[]] mIsPrivileged: false mStreamActive: true mDisabled: false] -> [10344(voipp)|spe_|a|e:o]
+585-09-08 16:37:24:933 stopBluetoothSco: setNewModeOwner
+586-09-08 16:37:24:933 updateCommunicationRoute, preferredCommunicationDevice: AudioDeviceAttributes: role:output type:speaker addr: name:Pixel 10a profiles:[{ENCODING_PCM_FLOAT, sampling rates=[48000], channel masks=0x0C, encapsulation type=0}] descriptors:[] eventSource: setNewModeOwner
+587-
+--
+611-# Volume state
+612-
+613-Stream volumes (device: index)
+614:- STREAM_VOICE_CALL:
+615-   Muted: false
+616-   Muted Internally: false
+617-   Min: 1
+--
+619-   streamVolume:10
+620-   Current: 1 (earpiece): 15, 2 (speaker): 10, 40000000 (default): 5
+621-   Devices: speaker(2)
+622:   Volume Group: AUDIO_STREAM_VOICE_CALL
+623-
+624-
+625-- STREAM_SYSTEM (aliased to: STREAM_RING):
+--
+688-   Volume Group: AUDIO_STREAM_ENFORCED_AUDIBLE
+689-
+690-
+691:- STREAM_DTMF (aliased to: STREAM_VOICE_CALL):
+692-   Muted: false
+693-   Muted Internally: false
+694-   Min: 0
+--
+738-- user mutable streams = 0x82e
+739-
+740-Volume Groups (device: index)
+741:- VOLUME GROUP AUDIO_STREAM_VOICE_CALL:
+742-   Muted: false
+743-   Min: 1
+744-   Max: 15
+745-   Current: 1 (earpiece): 15, 2 (speaker): 10, 40000000 (default): 5
+746-   Devices: speaker
+747:   Streams: STREAM_VOICE_CALL
+748-- VOLUME GROUP AUDIO_STREAM_SYSTEM:
+749-   Muted: false
+750-   Min: 0
+--
+837-09-08 15:17:33:343 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+838-09-08 15:25:29:829 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+839-09-08 15:31:27:648 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+840:09-08 15:31:27:661 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:7 (was:5) aliased streams: STREAM_DTMF:7
+841-09-08 15:31:27:919 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+842:09-08 15:31:27:934 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:10 (was:7) aliased streams: STREAM_DTMF:9
+843-09-08 15:31:28:162 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+844:09-08 15:31:28:182 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:12 (was:10) aliased streams: STREAM_DTMF:12
+845-09-08 15:31:28:364 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+846:09-08 15:31:28:381 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:14 (was:12) aliased streams: STREAM_DTMF:14
+847-09-08 15:31:29:158 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+848:09-08 15:31:29:175 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:12 (was:14) aliased streams: STREAM_DTMF:12
+849-09-08 15:31:29:344 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+850:09-08 15:31:29:363 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:10 (was:12) aliased streams: STREAM_DTMF:9
+851-09-08 15:31:29:828 setStreamVolume(stream:STREAM_MUSIC index:11 flags:0x0 oldIndex:8) from com.android.systemui
+852-09-08 15:31:29:836 sending VOLUME_CHANGED stream:STREAM_MUSIC index:11 (was:8) aliased streams: STREAM_ACCESSIBILITY:7 STREAM_TTS:7
+853-09-08 15:31:29:851 setStreamVolume(stream:STREAM_MUSIC index:12 flags:0x0 oldIndex:11) from com.android.systemui
+--
+877-09-08 15:31:34:399 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+878-09-08 15:31:34:412 sending VOLUME_CHANGED stream:STREAM_MUSIC index:24 (was:23) aliased streams: STREAM_ACCESSIBILITY:14 STREAM_TTS:14
+879-09-08 15:31:42:129 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+880:09-08 15:31:42:146 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:12 (was:10) aliased streams: STREAM_DTMF:12
+881-09-08 15:31:42:964 setStreamVolume(stream:STREAM_MUSIC index:24 flags:0x0 oldIndex:24) from com.android.systemui
+882-09-08 15:31:42:975 setStreamVolume(stream:STREAM_MUSIC index:25 flags:0x0 oldIndex:24) from com.android.systemui
+883-09-08 15:31:42:988 sending VOLUME_CHANGED stream:STREAM_MUSIC index:25 (was:24) aliased streams: STREAM_ACCESSIBILITY:15 STREAM_TTS:15
+884-09-08 15:32:43:591 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+885:09-08 15:32:43:606 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:3 (was:5) aliased streams: STREAM_DTMF:2
+886-09-08 15:32:47:235 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+887:09-08 15:32:47:245 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:5 (was:3) aliased streams: STREAM_DTMF:4
+888-09-08 15:32:47:931 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+889:09-08 15:32:47:940 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:7 (was:5) aliased streams: STREAM_DTMF:7
+890-09-08 15:32:48:185 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+891:09-08 15:32:48:196 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:10 (was:7) aliased streams: STREAM_DTMF:9
+892-09-08 15:32:48:232 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+893:09-08 15:32:48:240 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:12 (was:10) aliased streams: STREAM_DTMF:12
+894-09-08 15:32:48:283 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+895:09-08 15:32:48:291 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:14 (was:12) aliased streams: STREAM_DTMF:14
+896-09-08 15:32:48:332 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+897:09-08 15:32:48:341 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:15 (was:14) aliased streams: STREAM_DTMF:15
+898-09-08 15:32:48:384 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+899-09-08 15:32:48:436 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+900-09-08 15:32:48:930 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+901:09-08 15:32:48:939 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:13 (was:15) aliased streams: STREAM_DTMF:13
+902-09-08 15:32:49:422 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+903:09-08 15:32:49:433 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:10 (was:13) aliased streams: STREAM_DTMF:10
+904-09-08 15:32:49:738 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+905:09-08 15:32:49:750 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:8 (was:10) aliased streams: STREAM_DTMF:8
+906-09-08 15:32:50:011 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+907:09-08 15:32:50:022 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:6 (was:8) aliased streams: STREAM_DTMF:5
+908-09-08 15:32:50:293 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+909:09-08 15:32:50:302 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:4 (was:6) aliased streams: STREAM_DTMF:3
+910-09-08 15:33:02:782 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+911:09-08 15:33:02:786 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:6 (was:4) aliased streams: STREAM_DTMF:5
+912-09-08 15:33:02:980 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+913:09-08 15:33:02:985 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:8 (was:6) aliased streams: STREAM_DTMF:8
+914-09-08 15:33:16:260 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+915:09-08 15:33:16:276 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:10 (was:8) aliased streams: STREAM_DTMF:10
+916-09-08 15:33:16:968 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+917:09-08 15:33:16:986 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:13 (was:10) aliased streams: STREAM_DTMF:13
+918-09-08 15:33:17:152 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+919:09-08 15:33:17:178 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:15 (was:13) aliased streams: STREAM_DTMF:15
+920-09-08 15:33:17:575 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+921:09-08 15:33:17:584 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:13 (was:15) aliased streams: STREAM_DTMF:13
+922-09-08 15:33:17:767 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+923:09-08 15:33:17:780 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:10 (was:13) aliased streams: STREAM_DTMF:10
+924-09-08 15:33:37:912 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+925:09-08 15:33:37:916 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:14 (was:12) aliased streams: STREAM_DTMF:14
+926-09-08 15:33:38:255 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+927:09-08 15:33:38:261 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:15 (was:14) aliased streams: STREAM_DTMF:15
+928-09-08 16:31:51:399 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+929:09-08 16:31:51:406 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:13 (was:10) aliased streams: STREAM_DTMF:13
+930-09-08 16:31:51:979 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_RAISE flags:0x1011) from android/android uid:1000
+931:09-08 16:31:51:998 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:15 (was:13) aliased streams: STREAM_DTMF:15
+932-09-08 16:31:52:381 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+933:09-08 16:31:52:395 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:13 (was:15) aliased streams: STREAM_DTMF:13
+934-09-08 16:31:52:807 adjustSuggestedStreamVolume(sugg:USE_DEFAULT_STREAM_TYPE dir:ADJUST_LOWER flags:0x1011) from android/android uid:1000
+935:09-08 16:31:52:821 sending VOLUME_CHANGED stream:STREAM_VOICE_CALL index:10 (was:13) aliased streams: STREAM_DTMF:10
+936-
+937-### Mute commands
+938-09-08 16:22:32:855 RingerZenMutedStreams 0x0 from updateStreamMuteFromRingerMode
+--
+1167-
+1168-    Name: STRATEGY_PHONE Id: 1
+1169-    Legacy Stream Type: 0 Volume Group Id: 1
+1170:    -AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null
+1171-
+1172-    Name: STRATEGY_SONIFICATION Id: 2
+1173-    Legacy Stream Type: 2 Volume Group Id: 3
+--
+1182-
+1183-    Name: STRATEGY_DTMF Id: 4
+1184-    Legacy Stream Type: 8 Volume Group Id: 8
+1185:    -AudioAttributes: usage=USAGE_VOICE_COMMUNICATION_SIGNALLING content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null
+1186-
+1187-    Name: STRATEGY_ENFORCED_AUDIBLE Id: 5
+1188-    Legacy Stream Type: 7 Volume Group Id: 7
+--
+1210-
+1211-- AUDIO VOLUME GROUPS:
+1212-
+1213:    Name: AUDIO_STREAM_VOICE_CALL Id: 1
+1214-        Supported Audio Attributes:
+1215:            -AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null
+1216-        Supported Legacy Stream Types: { 0 }
+1217-
+1218-    Name: AUDIO_STREAM_SYSTEM Id: 2
+--
+1251-
+1252-    Name: AUDIO_STREAM_DTMF Id: 8
+1253-        Supported Audio Attributes:
+1254:            -AudioAttributes: usage=USAGE_VOICE_COMMUNICATION_SIGNALLING content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null
+1255-        Supported Legacy Stream Types: { 8 }
+1256-
+1257-    Name: AUDIO_STREAM_TTS Id: 9
+--
+1298-           AudioDeviceAttributes: role:output type:speaker addr: name: profiles:[] descriptors:[]
+1299-   AudioAttributes: usage=USAGE_NOTIFICATION content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null forVolume: true stream: STREAM_NOTIFICATION(5)
+1300-           AudioDeviceAttributes: role:output type:speaker addr: name: profiles:[] descriptors:[]
+1301:   AudioAttributes: usage=USAGE_VOICE_COMMUNICATION content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null forVolume: true stream: STREAM_VOICE_CALL(0)
+1302-           AudioDeviceAttributes: role:output type:speaker addr: name: profiles:[] descriptors:[]
+1303:   AudioAttributes: usage=USAGE_VOICE_COMMUNICATION_SIGNALLING content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null forVolume: true stream: STREAM_DTMF(8)
+1304-           AudioDeviceAttributes: role:output type:speaker addr: name: profiles:[] descriptors:[]
+1305-   AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null forVolume: true stream: STREAM_MUSIC(3)
+1306-           AudioDeviceAttributes: role:output type:speaker addr: name: profiles:[] descriptors:[]
