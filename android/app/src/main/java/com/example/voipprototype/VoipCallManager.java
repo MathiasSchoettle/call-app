@@ -2,6 +2,8 @@ package com.example.voipprototype;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.app.ActivityManager;
+import android.app.KeyguardManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telecom.PhoneAccount;
@@ -46,7 +48,7 @@ public final class VoipCallManager {
         }
 
         registerPhoneAccount(context);
-        currentCall = new CallSession(callId, caller);
+        currentCall = new CallSession(callId, caller, isDeviceLocked(context));
         IncomingCallNotifier.show(context, currentCall);
 
         TelecomManager telecom = context.getSystemService(TelecomManager.class);
@@ -81,7 +83,7 @@ public final class VoipCallManager {
             return rejected;
         }
         if (currentCall == null) {
-            currentCall = new CallSession(callId, caller);
+            currentCall = new CallSession(callId, caller, isDeviceLocked(context));
             CallPlugin.notifyCallState("ringing", currentCall);
         }
         currentConnection = new MockVoipConnection(context, currentCall.id, currentCall.caller);
@@ -134,11 +136,30 @@ public final class VoipCallManager {
         CallForegroundService.stop(context);
         if (endedCall != null) {
             CallPlugin.notifyCallState("ended", endedCall);
+            if (endedCall.startedLocked) {
+                closeAppTasks(context);
+            }
         }
     }
 
     static synchronized CallSession getCurrentCall() {
         return currentCall;
+    }
+
+    private static boolean isDeviceLocked(Context context) {
+        KeyguardManager keyguard = context.getSystemService(KeyguardManager.class);
+        return keyguard != null && keyguard.isKeyguardLocked();
+    }
+
+    private static void closeAppTasks(Context context) {
+        ActivityManager activityManager = context.getSystemService(ActivityManager.class);
+        if (activityManager == null) {
+            return;
+        }
+
+        for (ActivityManager.AppTask task : activityManager.getAppTasks()) {
+            task.finishAndRemoveTask();
+        }
     }
 
     private static PhoneAccountHandle phoneAccountHandle(Context context) {
@@ -151,11 +172,13 @@ public final class VoipCallManager {
     static final class CallSession {
         final String id;
         final String caller;
+        final boolean startedLocked;
         boolean answerRequested;
 
-        CallSession(String id, String caller) {
+        CallSession(String id, String caller, boolean startedLocked) {
             this.id = id;
             this.caller = caller;
+            this.startedLocked = startedLocked;
         }
     }
 }
