@@ -8,12 +8,13 @@
         <div>
           <p class="label">Active call</p>
           <p class="caller">{{ call.caller }}</p>
-          <p class="status">Call in progress</p>
+          <p class="status">{{ loopbackStatus }}</p>
         </div>
         <button type="button" class="hang-up" :disabled="hangingUp" @click="hangUp">
           {{ hangingUp ? 'Ending call…' : 'Hang up' }}
         </button>
       </div>
+      <audio ref="loopbackAudio" autoplay playsinline />
       <div class="push-debug">
         <p class="label">Firebase test-device token</p>
         <p class="status">{{ tokenStatus }}</p>
@@ -34,6 +35,7 @@ interface PushDebugPlugin {
 }
 
 type CallState = 'ringing' | 'active' | 'ended'
+type LoopbackState = 'idle' | 'starting' | 'active' | 'error'
 
 interface CallStatus {
   state: CallState
@@ -54,7 +56,21 @@ const tokenStatus = ref('Firebase is not checked yet.')
 const loadingToken = ref(false)
 const call = ref<CallStatus>({ state: 'ended' })
 const hangingUp = ref(false)
+const loopbackAudio = ref<HTMLAudioElement | null>(null)
+const loopbackState = ref<LoopbackState>('idle')
+const loopbackStatus = computed(() => {
+  if (loopbackState.value === 'starting') return 'Starting microphone loopback…'
+  if (loopbackState.value === 'active') return 'Microphone loopback active'
+  if (loopbackState.value === 'error') return 'Microphone loopback failed'
+  return 'Call in progress'
+})
 let callStateListener: PluginListenerHandle | undefined
+let localPeer: RTCPeerConnection | undefined
+let remotePeer: RTCPeerConnection | undefined
+let microphoneStream: MediaStream | undefined
+let loopbackCallId: string | undefined
+let loopbackGeneration = 0
+let loopbackStartPromise: Promise<void> | undefined
 
 async function loadRegistrationToken() {
   if (!Capacitor.isNativePlatform()) {
@@ -89,6 +105,132 @@ async function loadCallState() {
   }
 }
 
+function waitForIceGathering(peer: RTCPeerConnection) {
+  if (peer.iceGatheringState === 'complete') {
+    return Promise.resolve()
+  }
+
+  return new Promise<void>((resolve) => {
+    const onStateChange = () => {
+      if (peer.iceGatheringState === 'complete') {
+        peer.removeEventListener('icegatheringstatechange', onStateChange)
+        resolve()
+      }
+    }
+    peer.addEventListener('icegatheringstatechange', onStateChange)
+  })
+}
+
+async function startLoopback(nextCall: CallStatus) {
+  if (nextCall.state !== 'active' || !nextCall.callId || loopbackCallId === nextCall.callId) {
+    return
+  }
+
+  if (loopbackStartPromise) {
+    await loopbackStartPromise
+    return
+  }
+
+  loopbackStartPromise = startLoopbackInternal(nextCall)
+  try {
+    await loopbackStartPromise
+  } finally {
+    loopbackStartPromise = undefined
+  }
+}
+
+async function startLoopbackInternal(nextCall: CallStatus) {
+
+  await stopLoopback()
+  const generation = ++loopbackGeneration
+  loopbackCallId = nextCall.callId
+  loopbackState.value = 'starting'
+
+  try {
+    microphoneStream = await navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: true,
+        noiseSuppression: true,
+        autoGainControl: true,
+      },
+    })
+
+    if (generation !== loopbackGeneration) {
+      await stopLoopback()
+      return
+    }
+
+    const local = new RTCPeerConnection()
+    const remote = new RTCPeerConnection()
+    localPeer = local
+    remotePeer = remote
+
+    remote.ontrack = (event) => {
+      const audio = loopbackAudio.value
+      if (!audio || generation !== loopbackGeneration) return
+      audio.srcObject = event.streams[0]
+      void audio.play().catch((error) => {
+        console.warn('Loopback audio playback was blocked.', error)
+      })
+    }
+
+    for (const track of microphoneStream.getTracks()) {
+      local.addTrack(track, microphoneStream)
+    }
+
+    const offer = await local.createOffer()
+    await local.setLocalDescription(offer)
+    await waitForIceGathering(local)
+    await remote.setRemoteDescription(local.localDescription!)
+
+    const answer = await remote.createAnswer()
+    await remote.setLocalDescription(answer)
+    await waitForIceGathering(remote)
+    await local.setRemoteDescription(remote.localDescription!)
+
+    if (generation === loopbackGeneration) {
+      loopbackState.value = 'active'
+    }
+  } catch (error) {
+    if (generation === loopbackGeneration) {
+      console.error('Could not start microphone loopback.', error)
+      await stopLoopback()
+      loopbackState.value = 'error'
+    }
+  }
+}
+
+async function stopLoopback() {
+  loopbackGeneration += 1
+  loopbackCallId = undefined
+  loopbackState.value = 'idle'
+
+  for (const track of microphoneStream?.getTracks() ?? []) {
+    track.stop()
+  }
+  microphoneStream = undefined
+
+  localPeer?.close()
+  remotePeer?.close()
+  localPeer = undefined
+  remotePeer = undefined
+
+  const audio = loopbackAudio.value
+  if (audio) {
+    audio.pause()
+    audio.srcObject = null
+  }
+}
+
+async function applyCallState(nextCall: CallStatus) {
+  call.value = nextCall
+  if (nextCall.state === 'active') {
+    await startLoopback(nextCall)
+  } else {
+    await stopLoopback()
+  }
+}
+
 async function hangUp() {
   if (!Capacitor.isNativePlatform()) {
     return
@@ -97,7 +239,7 @@ async function hangUp() {
   hangingUp.value = true
   try {
     await Call.hangUp()
-    call.value = { state: 'ended' }
+    await applyCallState({ state: 'ended' })
   } catch (error) {
     console.error('Could not hang up the native call.', error)
   } finally {
@@ -106,17 +248,21 @@ async function hangUp() {
 }
 
 onMounted(async () => {
-  await loadCallState()
   if (Capacitor.isNativePlatform()) {
     callStateListener = await Call.addListener('callStateChanged', (event) => {
-      call.value = event
+      void applyCallState(event)
     })
+  }
+  await loadCallState()
+  if (call.value.state === 'active') {
+    await startLoopback(call.value)
   }
   await loadRegistrationToken()
 })
 
-onUnmounted(() => {
+onUnmounted(async () => {
   callStateListener?.remove()
+  await stopLoopback()
 })
 </script>
 
@@ -185,6 +331,8 @@ p { color: #c6cad6; line-height: 1.5; }
 }
 
 .active-call .status { margin-top: 4px; }
+
+audio { display: none; }
 
 .hang-up {
   flex: 0 0 auto;

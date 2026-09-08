@@ -6,6 +6,8 @@ import android.app.ActivityManager;
 import android.app.KeyguardManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -137,7 +139,10 @@ public final class VoipCallManager {
         if (endedCall != null) {
             CallPlugin.notifyCallState("ended", endedCall);
             if (endedCall.startedLocked) {
-                closeAppTasks(context);
+                new Handler(Looper.getMainLooper()).postDelayed(
+                        () -> closeAppTasks(context),
+                        300
+                );
             }
         }
     }
